@@ -84,4 +84,4 @@ See `../cursor_prompt_finance_tracker_v2.md` for the full detailed build specifi
 4. Add expenses linked to accounts
 5. Set budgets → trigger alerts
 6. View Reports pie chart and Dashboard trends
-7. Export CSV from Expenses page
+7. Export CSV from Expenses page .

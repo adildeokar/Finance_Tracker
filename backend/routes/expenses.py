@@ -5,9 +5,9 @@ import io
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import StreamingResponse
 
-from auth.jwt_bearer import jwt_bearer
-from database import supabase
-from models.schemas import BulkExpenseCreate, ExpenseCreate, ExpenseUpdate
+from backend.auth.jwt_bearer import jwt_bearer
+from backend.database import supabase
+from backend.models.schemas import BulkExpenseCreate, ExpenseCreate, ExpenseUpdate
 
 router = APIRouter(prefix="/expenses", tags=["Expenses"], dependencies=[Depends(jwt_bearer)])
 

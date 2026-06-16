@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, Request
 import bcrypt
 
-from auth.jwt_bearer import jwt_bearer
-from auth.jwt_handler import create_access_token
-from database import supabase
-from models.schemas import ChangePassword, UserLogin, UserRegister
+from backend.auth.jwt_bearer import jwt_bearer
+from backend.auth.jwt_handler import create_access_token
+from backend.database import supabase
+from backend.models.schemas import ChangePassword, UserLogin, UserRegister
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 

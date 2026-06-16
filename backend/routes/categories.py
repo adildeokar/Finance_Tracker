@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, Request
 
-from auth.jwt_bearer import jwt_bearer
-from database import supabase
-from models.schemas import CategoryCreate, CategoryUpdate
+from backend.auth.jwt_bearer import jwt_bearer
+from backend.database import supabase
+from backend.models.schemas import CategoryCreate, CategoryUpdate
 
 router = APIRouter(prefix="/categories", tags=["Categories"], dependencies=[Depends(jwt_bearer)])
 

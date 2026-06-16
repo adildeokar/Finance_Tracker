@@ -3,9 +3,9 @@ from datetime import date
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 
-from auth.jwt_bearer import jwt_bearer
-from database import supabase
-from models.schemas import AccountCreate, AccountUpdate
+from backend.auth.jwt_bearer import jwt_bearer
+from backend.database import supabase
+from backend.models.schemas import AccountCreate, AccountUpdate
 
 router = APIRouter(prefix="/accounts", tags=["Payment Accounts"], dependencies=[Depends(jwt_bearer)])
 

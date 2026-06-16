@@ -4,8 +4,8 @@ from datetime import date
 
 from fastapi import APIRouter, Depends, Request
 
-from auth.jwt_bearer import jwt_bearer
-from database import supabase
+from backend.auth.jwt_bearer import jwt_bearer
+from backend.database import supabase
 
 router = APIRouter(prefix="/reports", tags=["Reports & Analytics"], dependencies=[Depends(jwt_bearer)])
 

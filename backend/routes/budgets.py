@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, Request
 
-from auth.jwt_bearer import jwt_bearer
-from database import supabase
-from models.schemas import BudgetCreate, BudgetUpdate
+from backend.auth.jwt_bearer import jwt_bearer
+from backend.database import supabase
+from backend.models.schemas import BudgetCreate, BudgetUpdate
 
 router = APIRouter(prefix="/budgets", tags=["Budgets"], dependencies=[Depends(jwt_bearer)])
 

@@ -1,16 +1,18 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from auth.auth_routes import router as auth_router
-from routes.accounts import router as accounts_router
-from routes.alerts import router as alerts_router
-from routes.budgets import router as budgets_router
-from routes.categories import router as categories_router
-from routes.dashboard import router as dashboard_router
-from routes.expenses import router as expenses_router
-from routes.goals import router as goals_router
-from routes.recurring import router as recurring_router
-from routes.reports import router as reports_router
+from backend.auth.auth_routes import router as auth_router
+from backend.routes.accounts import router as accounts_router
+from backend.routes.alerts import router as alerts_router
+from backend.routes.budgets import router as budgets_router
+from backend.routes.categories import router as categories_router
+from backend.routes.dashboard import router as dashboard_router
+from backend.routes.expenses import router as expenses_router
+from backend.routes.goals import router as goals_router
+from backend.routes.recurring import router as recurring_router
+from backend.routes.reports import router as reports_router
 
 app = FastAPI(
     title="Finance Tracker API",
@@ -22,9 +24,11 @@ app = FastAPI(
     version="2.0.0",
 )
 
+frontend_origins = [o.strip() for o in os.getenv("FRONTEND_ORIGINS", "http://localhost:5173").split(",") if o.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=frontend_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

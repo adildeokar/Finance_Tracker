@@ -47,6 +47,27 @@ npm run dev
 
 App: http://localhost:5173
 
+## Deploy on Vercel
+
+### Backend (FastAPI)
+
+1. Import this repo into Vercel and set project root to `finance-tracker`.
+2. Ensure `vercel.json`, `api/index.py`, and root `requirements.txt` are present (already included).
+3. Add backend environment variables in Vercel:
+   - `SUPABASE_URL`
+   - `SUPABASE_KEY`
+   - `JWT_SECRET`
+   - `JWT_ALGORITHM=HS256`
+   - `JWT_EXPIRATION_MINUTES=1440`
+   - `FRONTEND_ORIGINS=https://your-frontend.vercel.app`
+4. Deploy and verify `https://your-backend.vercel.app/docs`.
+
+### Frontend (Vite)
+
+1. Create a second Vercel project with root `finance-tracker/frontend`.
+2. Add env var: `VITE_API_BASE_URL=https://your-backend.vercel.app`.
+3. Deploy and verify login/API calls from the browser.
+
 ## API Routers (10 distinct groups)
 
 | Router | Prefix | Purpose |

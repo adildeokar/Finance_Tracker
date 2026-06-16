@@ -2,9 +2,9 @@ from datetime import date
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 
-from auth.jwt_bearer import jwt_bearer
-from database import supabase
-from models.schemas import RecurringCreate, RecurringUpdate
+from backend.auth.jwt_bearer import jwt_bearer
+from backend.database import supabase
+from backend.models.schemas import RecurringCreate, RecurringUpdate
 
 router = APIRouter(prefix="/recurring", tags=["Recurring Transactions"], dependencies=[Depends(jwt_bearer)])
 

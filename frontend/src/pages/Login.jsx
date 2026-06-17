@@ -18,7 +18,17 @@ export default function Login() {
       await login(email, password);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.detail || 'Login failed');
+      const detail = err.response?.data?.detail;
+      const status = err.response?.status;
+      if (detail) {
+        setError(typeof detail === 'string' ? detail : JSON.stringify(detail));
+      } else if (status === 404) {
+        setError('API not found (404). Redeploy frontend and clear browser cache.');
+      } else if (!err.response) {
+        setError('Cannot reach API server. Check backend deployment and CORS settings.');
+      } else {
+        setError('Login failed');
+      }
     } finally {
       setLoading(false);
     }

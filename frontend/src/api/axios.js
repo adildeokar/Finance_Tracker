@@ -1,7 +1,17 @@
 import axios from 'axios';
 
+const resolveBaseURL = () => {
+  if (import.meta.env.VITE_API_BASE_URL) {
+    return import.meta.env.VITE_API_BASE_URL;
+  }
+  if (typeof window !== 'undefined' && window.location.hostname.endsWith('.vercel.app')) {
+    return 'https://finance-tracker-pi-wheat.vercel.app';
+  }
+  return 'http://localhost:8000';
+};
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000',
+  baseURL: resolveBaseURL(),
 });
 
 api.interceptors.request.use((config) => {

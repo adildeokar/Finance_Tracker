@@ -32,7 +32,10 @@ export default function Expenses() {
     }
   };
 
-  const exportCsv = () => window.open('http://localhost:8000/expenses/export/csv', '_blank');
+  const exportCsv = () => {
+    const base = import.meta.env.DEV ? 'http://localhost:8000' : '';
+    window.open(`${base}/expenses/export/csv`, '_blank');
+  };
 
   return (
     <div className="space-y-6">

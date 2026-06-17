@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/auth/:path*", "destination": "https://finance-tracker-pi-wheat.vercel.app/auth/:path*" },
+    { "source": "/accounts/:path*", "destination": "https://finance-tracker-pi-wheat.vercel.app/accounts/:path*" },
+    { "source": "/expenses/:path*", "destination": "https://finance-tracker-pi-wheat.vercel.app/expenses/:path*" },
+    { "source": "/categories/:path*", "destination": "https://finance-tracker-pi-wheat.vercel.app/categories/:path*" },
+    { "source": "/budgets/:path*", "destination": "https://finance-tracker-pi-wheat.vercel.app/budgets/:path*" },
+    { "source": "/recurring/:path*", "destination": "https://finance-tracker-pi-wheat.vercel.app/recurring/:path*" },
+    { "source": "/goals/:path*", "destination": "https://finance-tracker-pi-wheat.vercel.app/goals/:path*" },
+    { "source": "/reports/:path*", "destination": "https://finance-tracker-pi-wheat.vercel.app/reports/:path*" },
+    { "source": "/dashboard/:path*", "destination": "https://finance-tracker-pi-wheat.vercel.app/dashboard/:path*" },
+    { "source": "/alerts/:path*", "destination": "https://finance-tracker-pi-wheat.vercel.app/alerts/:path*" }
+  ]
+}

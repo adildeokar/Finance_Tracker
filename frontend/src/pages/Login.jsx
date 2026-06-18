@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { BookOpen, ExternalLink } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+
+const API_DOCS_URL = import.meta.env.DEV
+  ? 'http://localhost:8000/docs'
+  : 'https://finance-tracker-pi-wheat.vercel.app/docs';
 
 export default function Login() {
   const { login } = useAuth();
@@ -65,6 +70,27 @@ export default function Login() {
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
+
+        <div className="relative my-5">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-slate-200 dark:border-slate-700" />
+          </div>
+          <div className="relative flex justify-center text-xs uppercase tracking-wide">
+            <span className="bg-white px-3 text-slate-400 dark:bg-slate-900">Developer</span>
+          </div>
+        </div>
+
+        <a
+          href={API_DOCS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 py-2.5 text-sm font-medium text-slate-700 transition hover:border-brand hover:bg-indigo-50 hover:text-brand dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-200 dark:hover:border-brand dark:hover:bg-indigo-950/40 dark:hover:text-brand-light"
+        >
+          <BookOpen size={16} className="shrink-0" />
+          <span>API Swagger Docs</span>
+          <ExternalLink size={14} className="shrink-0 opacity-50" />
+        </a>
+
         <p className="mt-4 text-center text-sm text-slate-500">
           No account? <Link to="/register" className="text-brand hover:underline">Register</Link>
         </p>
